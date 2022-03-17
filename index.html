@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>火柴人</title>
+    <meta name="keywords" content="QQ空间,黄钻空间装扮,黄钻特权,开通黄钻,黄钻活动,QQ空间活动,QQ空间交友,QQ空间明星,豪华版黄钻,年费黄钻,游戏特权,生活特权,基础特权,黄钻回馈" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--QQ分享使用-->
+    <meta itemprop="name" content="xxxxx-QQ空间"/>
+    <meta itemprop="description" name="description"  content="xxxxx-QQ空间"/>
+    <meta itemprop="image" content="http://qzonestyle.gtimg.cn/aoi/sola/20150407145907_WGHDfZiYfg.jpg" />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<div class="mod-main" id="main">
+
+	<a href="javascript:;" id="btn-again" class="btn-again">重来</a>
+
+	<script>
+		var scaleResize = function(json){
+
+			var d = {
+				size : 'cover',
+				center : 50,
+				normal : 50,
+				w : 375,  //PSD设计稿的宽
+				h : 667  //PSD设计稿的高
+			},
+			scale = 1,
+			moveY = 0,  //不是居中时候的偏移量
+			moveX = 0,  //不是居中时候的偏移量
+			el = document.documentElement,
+			w = el.clientWidth,
+			h = el.clientHeight;
+
+			for(var attr in json){
+				d[attr] = json[attr];
+			}
+
+			if(d.size == 'cover'){  //if-else 从大概率 到 小概率的排序
+				if( w/h > d.w/d.h ){
+					wResize();
+				}else{
+					hResize();
+				}
+			}else if(d.size == 'contain'){
+				if( w/h < d.w/d.h ){
+					wResize();
+				}else{
+					hResize();
+				}
+			}else if(d.size == 'width'){
+				wResize();
+			}else if(d.size == 'height'){
+				hResize();
+			}else if(d.size == "draw"){ //拉伸
+				drawResize();
+				return;
+			}
+
+			document.getElementById(d.id).style.cssText = ' -webkit-transform:scale('+scale+') translate(-'+(d.normal/scale + moveX)+'%,-'+(d.normal/scale + moveY)+'%);';
+
+			function wResize(){
+				scale = w / d.w;
+				if(d.center == 50){ //虽然什么都不做，但居中是大概率 所以大概率情况下 if-else 只执行一步
+
+				}else if(d.center == 0){
+					moveY = (h / scale - d.h) / d.h * 50;
+				}else if(d.center == 100){
+					moveY = - (h / scale - d.h) / d.h * 50;
+				}
+			}
+
+			function hResize(){
+				scale = h / d.h;
+				if(d.center == 50){
+
+				}else if(d.center == 0){
+					moveX = (w / scale - d.w) / d.w * 50;
+				}else if(d.center == 100){
+					moveX = - (w / scale - d.w) / d.w * 50;
+				}
+			}
+
+			function drawResize(){
+				var scaleX = w/d.w,
+					scaleY = h/d.h;
+				scale = scaleX + ',' + scaleY;
+				document.getElementById(d.id).style.cssText = ' -webkit-transform:scale('+scale+') translate(-'+(d.normal/scaleX + moveX)+'%,-'+(d.normal/scaleY + moveY)+'%);';	
+			}
+		};
+		scaleResize({
+			id: 'main', //必填
+			size : 'cover',  // 非必填 默认参数cover 其他contain width height draw(拉伸)
+			center : 100   // 非必填 默认参数50 其他 0上  100下 或 左 中 右
+		});
+   		window.addEventListener("resize", function(){
+   			clearTimeout(window.timer_resize);
+   			window.timer_resize = setTimeout(function(){
+				// scaleResize({
+				// 	 size : 'width'
+				// });
+   			},50)
+   		}, false);
+	</script>
+
+	<div id="cvs"></div>
+
+</div>
+
+<p class="num" id="num">00</p>
+<div id="Stats-output">
+</div>
+
+
+<script src="js/three.min.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/Tween.js"></script>
+<script src="js/TrackballControls.js"></script>
+<script src="js/yuan.js"></script>
+<script src="js/man.js"></script>
+<script src="js/block.js"></script>
+<script src="js/game.js"></script>
+
+
+</body>
+</html>
