@@ -49,14 +49,17 @@ body,html{
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 5;
+	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+	-webkit-touch-callout: none;
+	pointer-events: none;
 }
 .num{
 	font-size: 40px;
 	color: #333;
 	position: absolute;
 	top: 40px;
-	left: 0;
-	right: 0;
+	right: 40px;
 	text-align: center;
 	pointer-events: none;
 	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
