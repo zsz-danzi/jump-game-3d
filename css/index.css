@@ -54,6 +54,11 @@ body,html{
 	-webkit-touch-callout: none;
 	pointer-events: none;
 }
+#Stats-output{
+	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+	-webkit-touch-callout: none;
+	pointer-events: none;
+}
 .num{
 	font-size: 40px;
 	color: #333;
