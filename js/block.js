@@ -1,11 +1,6 @@
 	
-
-
     function Block( opt ){
-
     	this.opt = opt;
-
-
     }
 
     Block.prototype.create = function(){
@@ -18,10 +13,10 @@
         cubeMaterial.color = new THREE.Color('#54606c');
         
         this.cube = new THREE.Mesh(cubeGeometry, cubeMaterial);	
-        
-        console.log( this.cube )
 
         this.cube.position.set( this.opt.pos.x, this.opt.pos.y, this.opt.pos.z + this.opt.size.h/2 );
+        
+        console.log( 'block', this.cube )
 
     	return this.cube;
     }
