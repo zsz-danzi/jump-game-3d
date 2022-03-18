@@ -38,6 +38,10 @@ body,html{
 	position: absolute;
 	top: 0;
 	left: 0;
+	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+	-webkit-touch-callout: none;
+	pointer-events: none;
+	z-index: 10;
 }
 #cvs{
 	width: 100%;
@@ -50,8 +54,9 @@ body,html{
 	font-size: 40px;
 	color: #333;
 	position: absolute;
-	top: 60px;
-	left: 40px;
+	top: 40px;
+	left: 0;
+	right: 0;
 	text-align: center;
 	pointer-events: none;
 	z-index: 2;
@@ -70,5 +75,7 @@ body,html{
 	z-index: 2;
 	position: relative;
 	display: none;
-	z-index: 5;
+	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+	-webkit-touch-callout: none;
+	z-index: 30;
 }
