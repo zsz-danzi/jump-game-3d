@@ -445,7 +445,7 @@ var Game = function(){
 				back_i = 0;
 			}
 
-      if (man.man.position.y < 15 && man.man.position.x < -30) {
+      if (man.man.position.y < 20 || (man.man.position.y > 60 && man.man.position.x > -10)) {
 				man.back_flag = false;
 				back_i = 0;
 
