@@ -59,6 +59,9 @@ body,html{
 	right: 0;
 	text-align: center;
 	pointer-events: none;
+	-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+	-webkit-touch-callout: none;
+	pointer-events: none;
 	z-index: 2;
 }
 .mod-main .btn-again{
